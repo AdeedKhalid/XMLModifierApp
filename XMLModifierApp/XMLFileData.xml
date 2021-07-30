@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<messages>
+  <note>
+    <to id="501">Tove</to>
+    <from id="502">Jani</from>
+    <heading id="503">Reminder</heading>
+    <body id="504">Don't forget me this weekend!</body>
+  </note>
+  <note>
+    <to id="601">Jani</to>
+    <from id="602">Tove</from>
+    <heading id="603">Re: Reminder</heading>
+    <body id="604">I will not</body>
+  </note>
+</messages>
