@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Xml;
 
 namespace XMLModifierApp
@@ -15,6 +14,7 @@ namespace XMLModifierApp
             Initialize();
             LoadData();
             PerformXMLDataManupulation(keyValuePairs);
+            RemoveMetaTagAttributesFromXML();
             SaveDocument();
             Console.WriteLine("COMPLETED!");
         }
@@ -22,8 +22,8 @@ namespace XMLModifierApp
         private static void Initialize()
         {
             xmlDoc = new XmlDocument();
-            keyValuePairs = new Dictionary<int, string>();
             xmlDoc.Load(AppConstant.FilePath);
+            keyValuePairs = new Dictionary<int, string>();
         }
 
         private static void LoadData()
@@ -38,9 +38,21 @@ namespace XMLModifierApp
         {
             foreach (var item in keyValuePairs)
             {
-                XmlElement node = xmlDoc.SelectSingleNode("//*[@id='" + item.Key + "']") as XmlElement;
+                XmlElement node = xmlDoc.SelectSingleNode("//*[@" + AppConstant.MetaTagName + "='" + item.Key + "']") as XmlElement;
                 if (node != null) node.InnerText = item.Value;
-                else throw new Exception("Node/Element " + item.Key + "Not Found");
+                else throw new Exception("Node/Element " + item.Key + "Not Found.");
+            }
+        }
+
+        private static void RemoveMetaTagAttributesFromXML()
+        {
+            XmlNodeList nodes = xmlDoc.SelectNodes("//*[@" + AppConstant.MetaTagName + "]");
+            if (nodes == null) throw new Exception("No Element Found With MetaTag.");
+
+            foreach (XmlNode node in nodes)
+            {
+                if (node.Attributes[AppConstant.MetaTagName] != null)
+                    node.Attributes.Remove(node.Attributes[AppConstant.MetaTagName]);
             }
         }
 

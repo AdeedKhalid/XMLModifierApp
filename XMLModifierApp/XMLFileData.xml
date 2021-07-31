@@ -1,15 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<messages>
-  <note>
-    <to id="501">Tove</to>
-    <from id="502">Jani</from>
-    <heading id="503">Reminder</heading>
-    <body id="504">Don't forget me this weekend!</body>
+<messages id="101">
+  <note id="201">
+    <date id="301">
+      <year id="401">2008</year>
+      <month id="402">01</month>
+      <day id="403">10</day>
+    </date>
+    <to id="202">Tove</to>
+    <from id="203">Jani</from>
+    <heading id="204">Reminder</heading>
+    <body id="205">Don't forget me this weekend!</body>
   </note>
-  <note>
-    <to id="601">Jani</to>
-    <from id="602">Tove</from>
-    <heading id="603">Re: Reminder</heading>
-    <body id="604">I will not</body>
+  <note id="301">
+    <date id="501">
+      <year id="502">2008</year>
+      <month id="503">01</month>
+      <day id="504">10</day>
+    </date>
+    <to id="302">Jani</to>
+    <from id="303">Tove</from>
+    <heading id="304">Re: Reminder</heading>
+    <body id="305">I will not</body>
   </note>
 </messages>

@@ -7,5 +7,6 @@ namespace XMLModifierApp
     {
         public static string FileName = "XMLFileData.xml";
         public static string FilePath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\" + FileName;
+        public static string MetaTagName = "id";
     }
 }
